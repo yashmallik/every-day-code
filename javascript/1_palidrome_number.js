@@ -6,20 +6,19 @@
 
 
 ---------------------------------------------------------------------------------------------------------------
-  
   /**
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function(x) {
-    if(x>0 || x%10==0 && x !=0){
+const isPalindrome = function(x) {
+    if(x < 0 || x % 10===0 && x !==0){
         return false;
     }
-    let num = x;
-    let mun = 0;
-    while(x>mun){
-        mun = num % 10 + mun*10;
-        num /= 10
+    rev = 0;
+    while(x > rev){
+        rev = rev * 10 + x % 10;
+        x = parseInt(x / 10)
     }
-    return x == mun || x== mun/10;
+     return (x == rev || x ==parseInt(rev/10))
 };
+
