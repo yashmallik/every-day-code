@@ -4,3 +4,26 @@
 // Given an integer n, return its complement.
 
  ----------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ /**
+ * @param {number} n
+ * @return {number}
+ */
+var bitwiseComplement = function(n) {
+    let bin =  n.toString(2);
+    let count = 0;
+
+    bin = bin.split(''); 
+    while(count < bin.length){
+        if(bin[bin.length-1] == 1){
+            bin.pop();
+            bin.unshift("0")
+        }else{
+            bin.pop();
+            bin.unshift("1")
+        }
+        count++
+    }
+    bin = bin.join("");
+    return parseInt(bin, 2)
+};
